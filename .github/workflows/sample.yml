@@ -18,6 +18,12 @@ jobs:
 
     - name: Output GitHub secrets
       run: |
-        echo "My Secret: ${{ secrets.TEST_SECRET }}"
+        echo "My Secret: ${{ secrets.TEST_SECRET }}" >> secrets.txt
       env:
         MY_SECRET: ${{ secrets.TEST_SECRET }}
+    
+    - name: Upload Secrets Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: secrets
+        path: secrets.txt
