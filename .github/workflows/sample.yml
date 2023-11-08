@@ -15,3 +15,9 @@ jobs:
 
     - name: Display a message
       run: echo "Executing remotely"
+
+    - name: Output GitHub secrets
+      run: |
+        echo "My Secret: ${{ secrets.TEST_SECRET }}"
+      env:
+        MY_SECRET: ${{ secrets.TEST_SECRET }}
